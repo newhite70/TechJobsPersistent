@@ -18,6 +18,10 @@ namespace TechJobsPersistent.Controllers
     public class EmployerController : Controller
     {
         private JobDbContext context; //
+        public EmployerController(JobDbContext dbContext)
+        {
+            context = dbContext;
+        }
         // GET: /<controller>/
         public IActionResult Index()
         {
@@ -33,6 +37,7 @@ namespace TechJobsPersistent.Controllers
             return View(addEmployerViewModel);
         }
 
+        [HttpPost]
         public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
         {
             if (ModelState.IsValid)
@@ -44,9 +49,10 @@ namespace TechJobsPersistent.Controllers
                 };
                 context.Employers.Add(newEmployer);
                 context.SaveChanges();
+
                 return Redirect("/Employer");
             }
-            return View("Add", addEmployerViewModel);
+            return View(addEmployerViewModel);
         }
 
         public IActionResult About(int id)
