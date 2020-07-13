@@ -13,17 +13,19 @@ namespace TechJobsPersistent.ViewModels
     public class AddEmployerViewModel
     {
         [Required(ErrorMessage = "Name is required")]
-        public int EmployerId { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Location is required")]
-        public int LocationId { get; set; }
+        public string Location { get; set; }
 
-        public Job Job { get; set; }
+        public Employer ToEmployer() => new Employer(Name, Location);
 
-        public List<SelectListItem> Employers { get; set; }
+        //public Job Job { get; set; }
+
+        //public List<SelectListItem> Employers { get; set; }
 
 
-
+        /*
         public AddEmployerViewModel(Job theJob, List<Employer> possibleEmployers)
         {
             Employers = new List<SelectListItem>();
@@ -37,47 +39,13 @@ namespace TechJobsPersistent.ViewModels
                 });
             }
 
-            Job = theJob;
+            //Job = theJob;
         }
+       
 
-        public AddJobSkillViewModel()
+        public AddEmployerViewModel()
         {
         }
-
-    }
-}
-
-
-
-public class AddJobSkillViewModel
-{
-    [Required(ErrorMessage = "Job is required")]
-    public int JobId { get; set; }
-
-    [Required(ErrorMessage = "Skill is required")]
-    public int SkillId { get; set; }
-
-    public Job Job { get; set; }
-
-    public List<SelectListItem> Skills { get; set; }
-
-    public AddJobSkillViewModel(Job theJob, List<Skill> possibleSkills)
-    {
-        Skills = new List<SelectListItem>();
-
-        foreach (var skill in possibleSkills)
-        {
-            Skills.Add(new SelectListItem
-            {
-                Value = skill.Id.ToString(),
-                Text = skill.Name
-            });
-        }
-
-        Job = theJob;
-    }
-
-    public AddJobSkillViewModel()
-    {
+        */
     }
 }
