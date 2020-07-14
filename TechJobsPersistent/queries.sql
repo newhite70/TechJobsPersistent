@@ -1,5 +1,5 @@
 --Part 1
-DESCRIBE jobs;
+DESCRIBE jobs; Id int(11) AI PK, 
 --Part 2
 SELECT Name FROM employers WHERE Location = "Saint Louis";
 --Part 3

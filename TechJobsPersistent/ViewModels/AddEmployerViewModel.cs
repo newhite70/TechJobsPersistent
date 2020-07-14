@@ -18,11 +18,7 @@ namespace TechJobsPersistent.ViewModels
         [Required(ErrorMessage = "Location is required")]
         public string Location { get; set; }
 
-        //public Employer ToEmployer() => new Employer(Name, Location);
 
-        //public Job Job { get; set; }
-
-        //public List<SelectListItem> Employers { get; set; }
 
 
         

@@ -24,13 +24,10 @@ namespace TechJobsPersistent.ViewModels
 
             foreach (var skill in possibleSkills)
             {
-                Skills.Add(new SelectListItem
-                {
-                    Value = skill.Id.ToString(),
-                    Text = skill.Name
-                });
+                Skills.Add(new SelectListItem{
+                    Value = skill.Id.ToString(), 
+                    Text = skill.Name});
             }
-
             Job = theJob;
         }
 
